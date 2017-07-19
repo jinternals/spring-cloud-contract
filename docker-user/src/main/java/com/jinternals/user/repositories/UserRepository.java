@@ -1,6 +1,6 @@
 package com.jinternals.user.repositories;
 
-import com.cloud.example.user.domain.User;
+import com.jinternals.user.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

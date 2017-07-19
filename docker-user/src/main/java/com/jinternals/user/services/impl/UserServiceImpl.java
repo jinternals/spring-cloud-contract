@@ -1,12 +1,13 @@
 package com.jinternals.user.services.impl;
 
-import com.cloud.example.user.domain.User;
-import com.cloud.example.user.repositories.UserRepository;
-import com.cloud.example.user.services.UserService;
+import com.jinternals.user.domain.User;
+import com.jinternals.user.repositories.UserRepository;
+import com.jinternals.user.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * Created by mradul on 07/07/17.
@@ -15,14 +16,6 @@ import javax.annotation.PostConstruct;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-
-    private int A =10;
-    @PostConstruct
-    public void init()
-    {
-        A = 20;
-        System.out.println("PostConstruct called");
-    }
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository){
@@ -34,7 +27,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
-    public int getA() {
-        return A;
+    @Override
+    public List<User> getAllUser() {
+        return userRepository.findAll();
     }
+
 }

@@ -1,6 +1,9 @@
 package com.jinternals.user.services;
 
-import com.cloud.example.user.domain.User;
+
+import com.jinternals.user.domain.User;
+
+import java.util.List;
 
 /**
  * Created by mradul on 07/07/17.
@@ -8,4 +11,7 @@ import com.cloud.example.user.domain.User;
 public interface UserService {
 
     User createUser(User user);
+
+    List<User> getAllUser();
+
 }

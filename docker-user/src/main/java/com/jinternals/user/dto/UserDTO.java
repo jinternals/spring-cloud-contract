@@ -1,14 +1,16 @@
 package com.jinternals.user.dto;
 
-import com.cloud.example.user.domain.User;
-import com.mradul.cloud.commons.validators.CheckGender;
+import com.jinternals.commons.validators.CheckGender;
+import com.jinternals.user.domain.User;
+import enums.Gender;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
-import static com.mradul.cloud.commons.enums.Gender.valueOf;
 
 public class UserDTO {
 
@@ -67,7 +69,25 @@ public class UserDTO {
         user.setEmail(userDTO.getEmail());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setGender(valueOf(userDTO.getGender().toUpperCase()));
+        user.setGender(Gender.valueOf(userDTO.getGender().toUpperCase()));
         return user;
+    }
+
+    public static UserDTO toDTO(User user){
+        UserDTO UserDTO = new UserDTO();
+        UserDTO.setEmail(user.getEmail());
+        UserDTO.setFirstName(user.getFirstName());
+        UserDTO.setLastName(user.getLastName());
+        UserDTO.setGender(user.getGender().toString());
+        return UserDTO;
+    }
+
+
+    public static List<UserDTO> toDTO(List<User> users){
+        List<UserDTO> userDTOs = new ArrayList<>();
+
+        users.forEach(user -> userDTOs.add(toDTO(user)));
+
+        return userDTOs;
     }
 }

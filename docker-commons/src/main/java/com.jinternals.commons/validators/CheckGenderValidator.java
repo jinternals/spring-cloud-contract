@@ -1,6 +1,6 @@
 package com.jinternals.commons.validators;
 
-import enums.Gender;
+import com.jinternals.commons.enums.Gender;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -2,7 +2,7 @@ package com.jinternals.user.dto;
 
 import com.jinternals.commons.validators.CheckGender;
 import com.jinternals.user.domain.User;
-import enums.Gender;
+import com.jinternals.commons.enums.Gender;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;

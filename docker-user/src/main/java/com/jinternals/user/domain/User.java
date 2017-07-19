@@ -1,6 +1,6 @@
 package com.jinternals.user.domain;
 
-import enums.Gender;
+import com.jinternals.commons.enums.Gender;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

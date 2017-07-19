@@ -1,0 +1,9 @@
+server:
+  port: 8012
+
+spring:
+  data:
+    mongodb:
+      database: docker-user
+      host: mongodb
+      port: 27017

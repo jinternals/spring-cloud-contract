@@ -1,4 +1,4 @@
-### Docker Spring app   
+## Docker Spring app   
 
 #### Build:
 mvn clean install docker:build

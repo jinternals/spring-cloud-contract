@@ -10,7 +10,5 @@ services:
   docker-user:
     image: mradul/docker-user
     container_name: docker-user
-    links:
-       - mongodb
     ports:
         - 8012:8012

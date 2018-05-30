@@ -1,15 +1,11 @@
-package com.jinternals.user.domain;
-
-import com.jinternals.user.commons.Gender;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+package com.jinternals.user.consumer.client;
 
 import java.io.Serializable;
 
-@Document
 public class User implements Serializable {
 
-    @Id
+    private String id;
+
     private String email;
 
     private String firstName;
@@ -20,12 +16,13 @@ public class User implements Serializable {
 
     public User() {
     }
+    
+    public String getId() {
+        return id;
+    }
 
-    public User(String email, String firstName, String lastName, Gender gender) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -83,5 +80,10 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
                 '}';
+    }
+
+    public static enum Gender {
+        MALE,
+        FEMALE
     }
 }

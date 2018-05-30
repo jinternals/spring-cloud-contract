@@ -1,4 +1,4 @@
 stubrunner:
-  workOffline: true
+  work-offline: true
   ids:
-    - com.jinternals:docker-user:+:stub:8081
+   - com.jinternals:docker-user:+:stubs:8081

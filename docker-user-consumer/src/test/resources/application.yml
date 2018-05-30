@@ -1,3 +1,4 @@
 feign:
-  url: http://docker-user:8012/
-  name: user
+  client:
+    url: http://localhost:8012/
+    name: user

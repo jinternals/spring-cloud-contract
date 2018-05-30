@@ -29,6 +29,7 @@
     <modules>
         <module>docker-user</module>
         <module>docker-stub-server</module>
+        <module>docker-user-consumer</module>
     </modules>
 
 

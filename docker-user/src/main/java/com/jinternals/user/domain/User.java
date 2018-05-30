@@ -1,22 +1,32 @@
 package com.jinternals.user.domain;
 
-import com.jinternals.commons.enums.Gender;
+import com.jinternals.user.commons.Gender;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
 @Document
-public class User implements Serializable{
+public class User implements Serializable {
 
     @Id
-	private String email;
+    private String email;
 
     private String firstName;
 
     private String lastName;
 
     private Gender gender;
+
+    public User() {
+    }
+
+    public User(String email, String firstName, String lastName, Gender gender) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+    }
 
     public String getEmail() {
         return email;

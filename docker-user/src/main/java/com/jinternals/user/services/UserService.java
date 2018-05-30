@@ -2,6 +2,8 @@ package com.jinternals.user.services;
 
 
 import com.jinternals.user.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -12,6 +14,6 @@ public interface UserService {
 
     User createUser(User user);
 
-    List<User> getAllUser();
+    Page<User> getAllUser(Pageable pageable);
 
 }

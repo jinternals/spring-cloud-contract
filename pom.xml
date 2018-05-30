@@ -12,14 +12,13 @@
     <properties>
         <root.dir>${basedir}</root.dir>
 
-        <docker.image.prefix>mradul</docker.image.prefix>
+        <docker.image.prefix>jinternals</docker.image.prefix>
 
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
 
-
-        <spring.boot.plugin>1.5.3.RELEASE</spring.boot.plugin>
-        <spring.cloud.version>Dalston.SR1</spring.cloud.version>
+        <spring.boot.plugin>1.5.10.RELEASE</spring.boot.plugin>
+        <spring.cloud.version>Edgware.SR3</spring.cloud.version>
 
         <plugin.git-commit.version>2.2.2</plugin.git-commit.version>
         <plugin.docker.version>0.4.13</plugin.docker.version>
@@ -29,7 +28,7 @@
 
     <modules>
         <module>docker-user</module>
-        <module>docker-commons</module>
+        <module>docker-stub-server</module>
     </modules>
 
 
@@ -130,6 +129,11 @@
                             </resource>
                         </resources>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                    <version>1.2.2.RELEASE</version>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>docker-user-consumer</artifactId>
+    <artifactId>demo-user-consumer</artifactId>
 
     <dependencies>
         <dependency>

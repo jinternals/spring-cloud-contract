@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@AutoConfigureStubRunner(ids = {"com.jinternals:docker-user:+:stubs:8012"}, workOffline = true)
+@AutoConfigureStubRunner(ids = {"com.jinternals:demo-user:+:stubs:8012"}, workOffline = true)
 @DirtiesContext
 public class UserClientTest {
 

@@ -1,4 +1,4 @@
-package com.jinternsls.stubserver;
+package com.jinternsls.stub.server;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.contract.stubrunner.server.EnableStubRunnerServer;

@@ -16,4 +16,6 @@ public interface UserService {
 
     Page<User> getAllUser(Pageable pageable);
 
+    User findById(String id);
+
 }

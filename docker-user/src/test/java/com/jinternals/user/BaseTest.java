@@ -1,6 +1,7 @@
 package com.jinternals.user;
 
 
+import com.jinternals.user.commons.IDGenerator;
 import com.jinternals.user.controllers.UserController;
 import com.jinternals.user.domain.User;
 import com.jinternals.user.services.UserService;
@@ -22,6 +23,7 @@ import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
 
 import static com.jinternals.user.commons.Gender.MALE;
 import static java.util.Arrays.asList;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.MOCK;
 
@@ -45,11 +47,13 @@ public abstract class BaseTest {
 
     @Before
     public void setup() {
+        USER.setId(IDGenerator.generateID());
         Pageable pageable = new PageRequest(0, 20, null);
         PageImpl<User> users = new PageImpl<>(asList(USER), pageable, 1);
 
         when(this.userService.getAllUser(pageable)).thenReturn(users);
         when(this.userService.createUser(USER)).thenReturn(USER);
+        when(this.userService.findById(anyString())).thenReturn(USER);
 
         StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(userController);
         standaloneMockMvcBuilder.setCustomArgumentResolvers(pageableArgumentResolver);

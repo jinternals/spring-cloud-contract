@@ -1,17 +1,14 @@
 package com.jinternals.user.controllers;
 
 import com.jinternals.user.domain.User;
-import com.jinternals.user.dto.UserDTO;
 import com.jinternals.user.services.UserService;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
-import static com.jinternals.user.dto.UserDTO.fromDTO;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -26,8 +23,15 @@ public class UserController {
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
     @ResponseBody
-    User createUser(@Valid @RequestBody UserDTO userDTO) {
-        return userService.createUser(fromDTO(userDTO));
+    User createUser(@Valid @RequestBody User user) {
+        user.setId(UUID.randomUUID().toString());
+        return userService.createUser(user);
+    }
+
+    @RequestMapping(path = "/user/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    User createUser(@PathVariable("id") String id) {
+        return userService.findById(id);
     }
 
     @RequestMapping(path = "/users", method = RequestMethod.GET)

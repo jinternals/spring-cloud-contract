@@ -34,4 +34,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(pageable);
     }
 
+    @Override
+    public User findById(String email){
+        return userRepository.findOne(email);
+    }
+
+
 }

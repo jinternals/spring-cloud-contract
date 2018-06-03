@@ -1,36 +1,45 @@
-package com.jinternals.user.domain;
+package com.jinternals.user.controllers.query.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.jinternals.user.commons.Gender;
+import com.jinternals.user.domain.User;
+import com.jinternals.user.domain.View;
 import org.hibernate.validator.constraints.Email;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
-@Document
-public class User implements Serializable {
+import static java.lang.String.format;
 
-    @Id
+public class UserQuerytDto {
+
+    @JsonView(View.V1.class)
     private String id;
 
     @Email
+    @JsonView(View.V1.class)
     private String email;
 
     @NotNull
+    @JsonView(View.V1.class)
     private String firstName;
 
     @NotNull
+    @JsonView(View.V1.class)
     private String lastName;
 
     @NotNull
+    @JsonView(View.V1.class)
     private Gender gender;
 
-    public User() {
+    @NotNull
+    @JsonView(View.V2.class)
+    private String fullName;
+
+
+    public UserQuerytDto() {
     }
 
-    public User(String email, String firstName, String lastName, Gender gender) {
+    public UserQuerytDto(String email, String firstName, String lastName, Gender gender) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -77,12 +86,20 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (!(o instanceof UserQuerytDto)) return false;
 
-        User user = (User) o;
+        UserQuerytDto user = (UserQuerytDto) o;
 
         return getEmail().equals(user.getEmail());
     }
@@ -101,4 +118,17 @@ public class User implements Serializable {
                 ", gender=" + gender +
                 '}';
     }
+
+    public static UserQuerytDto toDto(User user) {
+        UserQuerytDto userQuerytDto = new UserQuerytDto();
+
+        userQuerytDto.setId(user.getId());
+        userQuerytDto.setEmail(user.getEmail());
+        userQuerytDto.setFirstName(user.getFirstName());
+        userQuerytDto.setLastName(user.getLastName());
+        userQuerytDto.setGender(user.getGender());
+        userQuerytDto.setFullName(format("%s %s", user.getFirstName(), user.getLastName()));
+        return userQuerytDto;
+    }
+
 }

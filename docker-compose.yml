@@ -7,8 +7,8 @@ services:
     volumes:
       - ./infra/mongo/:/data/db
 
-  docker-user:
-    image: mradul/docker-user
-    container_name: docker-user
+  demo-user:
+    image: mradul/demo-user
+    container_name: demo-user
     ports:
         - 8012:8012

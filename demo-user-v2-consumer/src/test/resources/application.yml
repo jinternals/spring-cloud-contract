@@ -1,0 +1,4 @@
+feign:
+  client:
+    url: http://localhost:8012/
+    name: user

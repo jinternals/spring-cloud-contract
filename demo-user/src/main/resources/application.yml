@@ -5,5 +5,5 @@ spring:
   data:
     mongodb:
       database: docker-user
-      host: mongodb
+      host: localhost
       port: 27017

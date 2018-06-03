@@ -29,7 +29,8 @@
     <modules>
         <module>demo-user</module>
         <module>demo-stub-server</module>
-        <module>demo-user-consumer</module>
+        <module>demo-user-v1-consumer</module>
+        <module>demo-user-v2-consumer</module>
     </modules>
 
 

@@ -1,42 +1,24 @@
-package com.jinternals.user.domain;
+package com.jinternals.user.consumer.client;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.jinternals.user.commons.Gender;
-import org.hibernate.validator.constraints.Email;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Document
 public class User implements Serializable {
 
-    @Id
     private String id;
 
-    @Email
     private String email;
 
-    @NotNull
     private String firstName;
 
-    @NotNull
     private String lastName;
 
-    @NotNull
+    private String fullName;
+
     private Gender gender;
 
     public User() {
     }
-
-    public User(String email, String firstName, String lastName, Gender gender) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-    }
-
+    
     public String getId() {
         return id;
     }
@@ -77,6 +59,14 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,5 +90,10 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
                 '}';
+    }
+
+    public static enum Gender {
+        MALE,
+        FEMALE
     }
 }

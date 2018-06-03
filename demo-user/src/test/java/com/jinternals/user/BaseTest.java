@@ -1,9 +1,10 @@
 package com.jinternals.user;
 
 
-import com.jinternals.user.commons.IDGenerator;
-import com.jinternals.user.controllers.UserController;
+import com.jinternals.user.controllers.command.UserCommandController;
+import com.jinternals.user.controllers.query.UserQueryController;
 import com.jinternals.user.domain.User;
+import com.jinternals.user.services.IdentityGenerator;
 import com.jinternals.user.services.UserService;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
@@ -34,8 +35,14 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 public abstract class BaseTest {
 
     public static final User USER = new User("pandeymradul@gmail.com", "mradul", "pandey", MALE);
+
+    public static final String USER_ID = "9febab1c-6f36-4a0b-88d6-3b6a6d81cd4a";
     @Autowired
-    private UserController userController;
+    private UserCommandController userCommandController;
+
+    @Autowired
+    private UserQueryController userQueryController;
+
 
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
@@ -45,9 +52,15 @@ public abstract class BaseTest {
     private UserService userService;
 
 
+    @MockBean
+    private IdentityGenerator identityGenerator;
+
     @Before
     public void setup() {
-        USER.setId(IDGenerator.generateID());
+
+        when(identityGenerator.generateIdentity()).thenReturn(USER_ID);
+
+        USER.setId(identityGenerator.generateIdentity());
         Pageable pageable = new PageRequest(0, 20, null);
         PageImpl<User> users = new PageImpl<>(asList(USER), pageable, 1);
 
@@ -55,7 +68,7 @@ public abstract class BaseTest {
         when(this.userService.createUser(USER)).thenReturn(USER);
         when(this.userService.findById(anyString())).thenReturn(USER);
 
-        StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(userController);
+        StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(userCommandController, userQueryController);
         standaloneMockMvcBuilder.setCustomArgumentResolvers(pageableArgumentResolver);
 
         RestAssuredMockMvc.standaloneSetup(standaloneMockMvcBuilder);

@@ -1,17 +1,6 @@
 version: '3'
 
 services:
-  mongodb:
-    image: mongo:3.4
-    container_name: mongo
-    volumes:
-      - ./infra/mongo/:/data/db
-
-  docker-user:
-    image: mradul/docker-user
-    container_name: docker-user
-    ports:
-        - 8012:8012
 
   postgresql:
     image: docker.bintray.io/postgres:9.5.2

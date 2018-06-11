@@ -1,4 +1,4 @@
-package com.jinternals.user.consumer;
+package com.jinternals.user.consumer.v2;
 
 
 import org.springframework.boot.SpringApplication;

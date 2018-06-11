@@ -1,4 +1,4 @@
-package com.jinternals.user.consumer.client;
+package com.jinternals.user.consumer.v2.client;
 
 import java.io.Serializable;
 

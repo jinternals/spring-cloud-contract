@@ -1,4 +1,4 @@
-package com.jinternals.user.consumer.client;
+package com.jinternals.user.consumer.v1.client;
 
 
 import org.junit.Test;
@@ -9,7 +9,6 @@ import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRun
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static com.jinternals.user.consumer.client.User.Gender.MALE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -30,6 +29,6 @@ public class UserClientTest {
         assertThat(user.getEmail()).isEqualTo("pandeymradul@gmail.com");
         assertThat(user.getFirstName()).isEqualTo("mradul");
         assertThat(user.getLastName()).isEqualTo("pandey");
-        assertThat(user.getGender()).isEqualTo(MALE);
+        assertThat(user.getGender()).isEqualTo(User.Gender.MALE);
     }
 }

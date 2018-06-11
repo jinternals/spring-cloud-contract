@@ -1,4 +1,4 @@
-package com.jinternals.user.consumer.client;
+package com.jinternals.user.consumer.v2.client;
 
 public interface MediaType {
     String VND_USER_API_V1 = "application/vnd.user.api.v1+json";

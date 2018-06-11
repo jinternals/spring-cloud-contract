@@ -1,4 +1,4 @@
-package com.jinternals.user.consumer.client;
+package com.jinternals.user.consumer.v2.client;
 
 
 import org.junit.Test;
@@ -9,7 +9,7 @@ import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRun
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static com.jinternals.user.consumer.client.User.Gender.MALE;
+import static com.jinternals.user.consumer.v2.client.User.Gender.MALE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)

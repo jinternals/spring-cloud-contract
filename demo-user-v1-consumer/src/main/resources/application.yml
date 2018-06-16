@@ -1,4 +1,7 @@
+server:
+  port: 8013
+
 feign:
   client:
-    url: http://docker-user:8012/
+    url: http://demo-user-service:8012/
     name: user

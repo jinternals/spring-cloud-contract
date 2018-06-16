@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>docker</artifactId>
+        <artifactId>spring-cloud-contract</artifactId>
         <groupId>com.jinternals</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -11,6 +11,9 @@
 
     <artifactId>demo-user-v2-consumer</artifactId>
 
+    <properties>
+        <root.dir>${basedir}/..</root.dir>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -58,6 +61,18 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <skipDockerBuild>false</skipDockerBuild>
+                    <skipDockerPush>false</skipDockerPush>
+                </configuration>
             </plugin>
         </plugins>
     </build>

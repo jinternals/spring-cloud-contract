@@ -1,4 +1,4 @@
-## Docker Spring app   
+## Spring cloud contract test  
 
 #### Build:
 mvn clean install docker:build

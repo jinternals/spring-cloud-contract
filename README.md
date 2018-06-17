@@ -2,7 +2,7 @@
 
 ![alt text](./cdc.png)
 
-#### Build:
+#### build images:
 mvn clean install docker:build
 
 #### deploy containers:

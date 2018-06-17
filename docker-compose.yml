@@ -6,21 +6,41 @@ services:
     container_name: mongo
     volumes:
       - ./infra/mongo/:/data/db
+    networks:
+      contract-network:
+        ipv4_address: 10.5.0.3
 
   demo-user-service:
     image: jinternals/demo-user-service
     container_name: demo-user-service
     ports:
         - 8012:8012
+    networks:
+      contract-network:
+        ipv4_address: 10.5.0.4
 
   demo-user-v1-consumer:
     image: jinternals/demo-user-v1-consumer
     container_name: demo-user-v1-consumer
     ports:
         - 8013:8013
+    networks:
+      contract-network:
+        ipv4_address: 10.5.0.5
 
   demo-user-v2-consumer:
     image: jinternals/demo-user-v2-consumer
     container_name: demo-user-v2-consumer
     ports:
         - 8014:8014
+    networks:
+      contract-network:
+        ipv4_address: 10.5.0.6
+
+  networks:
+     contract-network:
+       driver: bridge
+       ipam:
+        config:
+          - subnet: 10.5.0.0/16
+            gateway: 10.5.0.1

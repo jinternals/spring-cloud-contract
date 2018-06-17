@@ -1,5 +1,7 @@
 ## Spring cloud contract test  
 
+![alt text](./cdc.png)
+
 #### Build:
 mvn clean install docker:build
 

@@ -4,4 +4,4 @@ server:
 stubrunner:
   work-offline: true
   ids:
-   - com.jinternals:demo-user:+:stubs:8081
+   - com.jinternals:demo-user-service:+:stubs:8081

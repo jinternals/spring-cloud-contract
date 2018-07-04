@@ -6,7 +6,6 @@ var client = supertest('http://localhost:8081');
 describe('User v1', function () {
 
     before(function (done) {
-
         done();
     });
 

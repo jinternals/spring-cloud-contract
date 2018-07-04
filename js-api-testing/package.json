@@ -1,0 +1,21 @@
+{
+  "name": "js-api-testing",
+  "version": "1.0.0",
+  "description": "JS API Testing",
+  "author": "Mradul Pandey",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "prestart": "npm install;",
+    "start": "mocha --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinternals/spring-cloud-contract.git"
+  }
+  "license" : "Apache License 2.0"
+}

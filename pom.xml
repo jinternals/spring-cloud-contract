@@ -17,13 +17,12 @@
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
 
-        <spring.boot.plugin>1.5.10.RELEASE</spring.boot.plugin>
-        <spring.cloud.version>Edgware.SR3</spring.cloud.version>
+        <spring.boot.version>2.1.1.RELEASE</spring.boot.version>
+        <spring.cloud.version>Finchley.SR2</spring.cloud.version>
 
         <plugin.git-commit.version>2.2.2</plugin.git-commit.version>
         <plugin.docker.version>0.4.13</plugin.docker.version>
         <plugin.properties.version>1.0.0</plugin.properties.version>
-        <admin.boot.version>1.5.2</admin.boot.version>
     </properties>
 
     <modules>
@@ -49,9 +48,16 @@
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.plugin}</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>2.4.12</version>
             </dependency>
 
         </dependencies>
@@ -85,7 +91,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring.boot.plugin}</version>
+                    <version>${spring.boot.version}</version>
                     <executions>
                         <execution>
                             <goals>
@@ -135,7 +141,6 @@
                 <plugin>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-contract-maven-plugin</artifactId>
-                    <version>1.2.2.RELEASE</version>
                 </plugin>
             </plugins>
         </pluginManagement>

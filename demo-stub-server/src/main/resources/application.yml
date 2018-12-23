@@ -2,6 +2,12 @@ server:
   port: 8080
 
 stubrunner:
-  work-offline: true
+  stubs-mode: local
+  stream:
+    enabled: false
   ids:
    - com.jinternals:demo-user-service:+:stubs:8081
+
+spring:
+  main:
+    allow-bean-definition-overriding: true

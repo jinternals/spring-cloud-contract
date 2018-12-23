@@ -9,8 +9,8 @@ import static org.springframework.boot.SpringApplication.run;
 /**
  * Created by mradul on 19/07/17.
  */
-@EnableStubRunnerServer
 @SpringBootApplication
+@EnableStubRunnerServer
 @AutoConfigureStubRunner
 public class Application {
 

@@ -2,10 +2,10 @@ package com.jinternals.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.jinternals.user.commons.Gender;
-import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
